@@ -61,10 +61,14 @@ delinations, which may not overlap with the same census tracts as the 2010 PUMA.
 Therefore, we only keep the 2012-2014 records. 
 - The outputs are saved in `pums_2012_2014.csv` (main file) and 
 `pums_hh_2012_2014.csv` (household size by income bracket).
+- While the BRFSS considers Hispanic/Latino ethnicity as a category under race, 
+in the census it is a separate (yes/no) question. To match the two datasets, we 
+assume that all respondents of Hispanic/Latino origin in census data (PUMS and ACS)
+would fall under the "hispanic" category in BRFSS.
 
 **acs\_data\_prep.R**
 
-Downloads the sex by age, race, and household income tables from ACS, map those
+Downloads the sex by age, race/ethnicity, and household income tables from ACS, map those
 categories to BRFSS categories with the `[income/race/sex_age]_map.csv` files,
 tally the counts by census tract and save the output into files:
 `acs2014_[income/race/sex_age].csv`.
@@ -73,7 +77,6 @@ Note:
 
 - To run this script, you need a census API key, which can be requested at: 
 http://api.census.gov/data/key_signup.html .
-
 
 **ipf.R**
 
@@ -106,9 +109,3 @@ discrepancies. The main reason for those seem to be group quarters, e.g. student
 dormitories, retirement homes, prisons, which are part of the ACS individuals data
 but not the households data. One option would be to just exclude census tracts with
 more than a certain % of individuals in group quarters from the analysis.
-
-On a separate issue, the BRFSS considers Hispanic/Latino ethnicity as a category
-under race, whereas in the census it is a separate (yes/no) question. Currently
-this question is extracted in the PUMS data but not in ACS, and is not used for the
-IPF. The question is should we account for this category and how? Or if we don't,
-does that bias the comparison between BRFSS and census (ACS/PUMS)?

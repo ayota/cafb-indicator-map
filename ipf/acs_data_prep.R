@@ -8,11 +8,11 @@ states_counties <- read.csv("ipf/states_counties.csv")
 tracts <- geo.make(state = states_counties$state_fips,
                    county = states_counties$county_fips, tract = "*")
 
-# Get tables B01001 (sex by age), B02001 (race) and B19001 (income)
+# Get tables B01001 (sex by age), B03002 (race/ethnicity) and B19001 (income)
 # (note: need to set CENSUS_KEY environmental variable to valid census API key)
 sa_tab <- acs.fetch(2014, table.number = "B01001", geography = tracts,
                    key = Sys.getenv("CENSUS_KEY")) 
-race_tab <- acs.fetch(2014, table.number = "B02001", geography = tracts,
+race_tab <- acs.fetch(2014, table.number = "B03002", geography = tracts,
                       key = Sys.getenv("CENSUS_KEY"))
 inc_tab <- acs.fetch(2014, table.number = "B19001", geography = tracts,
                     key = Sys.getenv("CENSUS_KEY"))
