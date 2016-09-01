@@ -1,13 +1,13 @@
-state_fips,county_fips
-11,1
-24,31
-24,33
-51,13
-51,59
-51,121
-51,153
-51,510
-51,600
-51,610
-51,683
-51,685
+state_fips,county_fips,county_name,state_name
+11,1,District of Columbia,District of Columbia
+24,31,Montgomery County,Maryland
+24,33,Prince George's County,Maryland
+51,13,Arlington County,Virginia
+51,59,Fairfax County,Virginia
+51,121,Montgomery County,Virginia
+51,153,Prince William County,Virginia
+51,510,Alexandria city,Virginia
+51,600,Fairfax city,Virginia
+51,610,Falls Church city,Virginia
+51,683,Manassas city,Virginia
+51,685,Manassas Park city,Virginia
